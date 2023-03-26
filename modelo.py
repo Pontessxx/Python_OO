@@ -21,17 +21,14 @@ class Programa:
 
 class Filme(Programa):#classe filha
     def __init__(self, nome, ano, duracao):
-        self._nome = nome.title()
-        self.ano = ano
+        super().__init__(nome, ano)
         self.duarcao = duracao
-        self._likes = 0
+
 
 class Serie(Programa):#classe filha
     def __init__(self, nome, ano, temporadas):
-        self._nome = nome.title()
-        self.ano = ano
+        super().__init__(nome, ano)
         self.temporadas = temporadas
-        self._likes = 0
 
 
 
