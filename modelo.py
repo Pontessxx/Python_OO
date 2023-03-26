@@ -1,51 +1,44 @@
-class Filme:
-    def __init__(self, nome, ano, duracao):
-        self.__nome = nome.title()
+class Programa:
+    def __init__(self, nome, ano):
+        self._nome= nome.title() #_Programa__nome => privado nao vai para classes filhas
         self.ano = ano
-        self.duracao = duracao
-        self.__likes = 0
+        self._likes = 0
 
     @property
     def likes(self):
-        return self.__likes
+        return self._likes
 
     def dar_likes(self):
-        self.__likes += 1
+        self._likes += 1
 
     @property
     def nome(self):
-        return self.__nome
+        return self._nome
 
     @nome.setter
     def nome(self, novo_nome):
-        self.__nome = novo_nome.title()
+        self._nome = novo_nome.title()
 
+class Filme(Programa):#classe filha
+    def __init__(self, nome, ano, duracao):
+        self._nome = nome.title()
+        self.ano = ano
+        self.duarcao = duracao
+        self._likes = 0
 
-class Serie:
+class Serie(Programa):#classe filha
     def __init__(self, nome, ano, temporadas):
-        self.__nome = nome.title()
+        self._nome = nome.title()
         self.ano = ano
         self.temporadas = temporadas
-        self.__likes = 0
+        self._likes = 0
 
-    @property
-    def likes(self):
-        return self.__likes
-
-    def dar_likes(self):
-        self.__likes += 1
-
-    @property
-    def nome(self):
-        return self.__nome
-
-    @nome.setter
-    def nome(self, novo_nome):
-        self.__nome = novo_nome.title()
 
 
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
+vingadores.dar_likes()
 print(vingadores.nome)
 
 atlanta = Serie('atlanta', 2018, 2)
+atlanta.dar_likes()
 print(f'Nome: {atlanta.nome} - Ano: {atlanta.ano}')
