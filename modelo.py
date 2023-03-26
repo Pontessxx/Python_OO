@@ -24,7 +24,6 @@ class Filme(Programa):#classe filha
         super().__init__(nome, ano)
         self.duarcao = duracao
 
-
 class Serie(Programa):#classe filha
     def __init__(self, nome, ano, temporadas):
         super().__init__(nome, ano)
@@ -34,8 +33,8 @@ class Serie(Programa):#classe filha
 
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
 vingadores.dar_likes()
-print(vingadores.nome)
+print(f'{vingadores.nome} - {vingadores.duarcao}: {vingadores.likes}')
 
 atlanta = Serie('atlanta', 2018, 2)
 atlanta.dar_likes()
-print(f'Nome: {atlanta.nome} - Ano: {atlanta.ano}')
+print(f'{atlanta.nome} - {atlanta.ano}: {atlanta.likes}')
