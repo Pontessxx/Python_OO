@@ -36,11 +36,17 @@ class Serie(programa):#classe filha
     def __str__(self):
         return f'{self._nome} - {self.ano} - {self.temporadas} temp: {self._likes}'
 
-class Playlist(list):
+class Playlist:#list é um bult-in
     def __init__(self, nome, programas):
        self.nome = nome
-       super().__init__(programas)
-
+       self._programas = programas
+    @property
+    def listagem(self):
+        return self._programas
+    
+    @property
+    def tamanho(self):
+        return len(self._programas)
 
 vingadores = Filme('vingadores - guerra infinita', 2018, 160)
 atlanta = Serie('atlanta', 2018, 2)
@@ -60,9 +66,9 @@ atlanta.dar_likes()
 filmes_e_series = [vingadores, atlanta, demolidor, tmep]#lista
 playtist_fim_de_semana = Playlist('Fim de semana', filmes_e_series)
 
-print(f'Tamanho da playlist: {len(playtist_fim_de_semana)}')#onjeto que verifica o tamanho
+print(f'Tamanho da playlist: {len(playtist_fim_de_semana.listagem)}')#onjeto que verifica o tamanho
 
-for programa in playtist_fim_de_semana:
+for programa in playtist_fim_de_semana.listagem:
     print(programa)
 
 print(f'Está ou não esta? {demolidor in playtist_fim_de_semana}')
